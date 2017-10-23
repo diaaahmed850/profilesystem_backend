@@ -2,8 +2,9 @@ from django.db import models
 
 
 # Create your models here.
+#This is Our Database model for profile System
 class ASUmember(models.Model):
-	profilePic = models.FileField()
+	profilePic = models.CharField(max_length=30)
 	firstName = models.CharField(max_length=50, null=False)
 	middleName = models.CharField(max_length=50, null=False)
 	lastName = models.CharField(max_length=50, null=False)
