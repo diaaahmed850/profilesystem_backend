@@ -20,5 +20,5 @@ from maryamapp import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^ASUmembers/',  views.ASUmemberReq),
+    url(r'^ASUmembers/',  views.RestView.as_view()),
 ]
