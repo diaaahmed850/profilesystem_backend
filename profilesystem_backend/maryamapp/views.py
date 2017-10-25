@@ -9,20 +9,20 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 
-from .models import ASUmember
+from .models import Member
 from .serializers import ASUmemberSerializer
 # Create your views here.
 # @api_view(['GET','post'])
 class RestView(APIView):
 	def getAll(self, request):
 		if request.method == 'GET':
-			ASUmembers=ASUmember.objects.all()
+			ASUmembers=Member.objects.all()
 			serializer=ASUmemberSerializer(ASUmembers, many=True)
 			return Response(serializer.data)
 
 	def getOne(self, request):
 		if request.method == 'GET':
-			ASUmembers=ASUmember.objects.get(pk=email)
+			ASUmembers=Member.objects.get(pk=email)
 			serializer=ASUmemberSerializer(ASUmembers, many=True)
 			return Response(serializer.data)
 

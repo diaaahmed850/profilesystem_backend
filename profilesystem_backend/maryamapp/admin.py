@@ -1,4 +1,11 @@
 from django.contrib import admin
-from .models import ASUmember
-# Register your models here.
-admin.site.register(ASUmember) #to add our model to admin panel
+from .models import Member
+
+
+class MemberAdmin(admin.ModelAdmin):
+    list_filter = ('University', 'Faculty', 'collegeDepartment', 'graduationYear', 'haveCar')
+    search_fields = ['firstName', 'middleName', 'lastName', 'Mobile', 'collegeID', 'nationalID', 'email']
+    list_display = ['firstName', 'middleName', 'Mobile', 'email', 'Faculty', 'graduationYear']
+
+
+admin.site.register(Member)  # to add our model to admin panel
